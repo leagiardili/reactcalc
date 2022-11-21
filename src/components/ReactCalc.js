@@ -142,8 +142,9 @@ function ReactCalc(){
                     <button onClick={() => updateCalc('+')}             className='btn'>+</button>
                     <button id="eval" onClick={() => calculate()}       className="btn equal">=</button>
                 </div>
-                <div> by Lea Giardili</div>
+                
             </div>
+            <div className='byme'> by Lea Giardili</div>
         </div>
     )
 }
