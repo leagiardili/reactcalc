@@ -51,12 +51,7 @@ function ReactCalc(){
 
         setCalc(calc + value);
         if(!ops.includes(value)) {
-            if (calc.includes('^')){
-                let base = calc.slice(0, calc.indexOf("^"));
-                setResult(eval(Math.pow(base, value)).toString());
-                setCalc(eval(Math.pow(base, value)).toString());
-                return;
-            }
+            
            
             if(calc.includes('Math')){
                 setResult(eval(calc + value).toFixed(5).toString())
@@ -67,7 +62,20 @@ function ReactCalc(){
     }
 
     const calculate= () =>{
-
+        if (calc.includes('n')){
+            let rad = calc.slice(0, calc.indexOf("n"));
+            let base = calc.slice(calc.indexOf("n") + 1);
+            setResult(eval(Math.pow(base, 1/rad)).toFixed(5).toString());
+            setCalc(eval(Math.pow(base, 1/rad)).toFixed(5).toString());
+            return;
+        }
+        if (calc.includes('^')){
+            let base = calc.slice(0, calc.indexOf("^"));
+            let exp = calc.slice(calc.indexOf("^") + 1);
+            setResult(eval(Math.pow(base, exp)).toFixed(5).toString());
+            setCalc(eval(Math.pow(base, exp)).toFixed(5).toString());
+            return;
+        }
         setCalc(eval(calc).toString());
     }
 
