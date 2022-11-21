@@ -6,7 +6,7 @@ function ReactCalc(){
 
     const [calc, setCalc] = useState('');
     const [result, setResult] = useState('');
-    const ops = ['/','*','+','-','.','%','^'];
+    const ops = ['/','*','+','-','.','%','^','n'];
 
     const updateCalc = value => {
         if(
@@ -51,8 +51,6 @@ function ReactCalc(){
 
         setCalc(calc + value);
         if(!ops.includes(value)) {
-            
-           
             if(calc.includes('Math')){
                 setResult(eval(calc + value).toFixed(5).toString())
             }
@@ -135,7 +133,7 @@ function ReactCalc(){
                     <button onClick={() => updateCalc('6')}             className='btn'>6</button>
                     <button onClick={() => updateCalc('*')}             className='btn'>*</button>
                     <button onClick={() => updateCalc('Math.log10(')}   className='btn'>log</button>
-                    <button onClick={() => updateCalc('Math.E')}        className='btn'>e</button>
+                    <button onClick={() => updateCalc('2.71828')}        className='btn'>e</button>
                     {/* ROW 5 */}
                     <button onClick={() => updateCalc('7')}             className='btn'>7</button>
                     <button onClick={() => updateCalc('8')}             className='btn'>8</button>
@@ -146,7 +144,7 @@ function ReactCalc(){
                     {/* ROW 6 */}
                     <button onClick={() => updateCalc('.')}             className='btn'>.</button>
                     <button onClick={() => updateCalc('0')}             className='btn'>0</button>
-                    <button onClick={() => updateCalc('Math.PI')}       className='btn'>π</button>
+                    <button onClick={() => updateCalc('3.14159')}       className='btn'>π</button>
                     <button onClick={() => updateCalc('+')}             className='btn'>+</button>
                     <button id="eval" onClick={() => calculate()}       className="btn equal">=</button>
                 </div>
